@@ -3,20 +3,22 @@ class toys{
         this.name=name;
         this.price=price;
         this.count=count;
+        this.id=Math.floor(Math.random()*199654)
         this.printtoysinfo()
+
 
     }
     printtoysinfo(){
-        console.log(`TOYS info:${this.name} ${this.count} ${this.price} \n====\n`)
+
+                    console.log(`Information  #:${this.name} #count: ${this.count} #price:${this.price} id for scanning: # ${this.id} \n====\n`)
+
+
+        
     }
 
 
 }
-const InStore=[
-    new toys ("bicycle",4,98),
-    new toys('train',10,20),
-    new toys('doll',2,13.2),
-    new toys('ball',1,5.33)
-]
 
-module.exports={InStore,toys}
+
+
+module.exports=toys;
