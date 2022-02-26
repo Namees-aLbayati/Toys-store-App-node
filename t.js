@@ -12,11 +12,11 @@ class toys{
 }
 const Required=[
     new toys ("bicycle",4,98),
-    new toys('train',10,20.76),
-    new toys('doll',2,13.2),
-    new toys('Ball',1,5.33)
+    new toys("train",10,20.76),
+    new toys("doll",2,12),
+    new toys("ball",1,5.33)
 ];
 
 
 
-module.exports=[toys,Required]
+module.exports=Required

@@ -1,47 +1,52 @@
-const toys=require("./t")
+const toys = require("./t")
 
-class Store{
-    constructor(name,toys){
-        this.name=name;
-        this.toys=toys;
-        this.income=0;
-        this.customerbasket=[]
-        this.remaining;
+class Store {
+    constructor(name, toys) {
+        this.name = name;
+        this.toys = toys;
+        this.income = 0;
+        this.customerbasket = []
+
+        this.remaining = 0;
 
     }
-    statusinfo(reqName){
-        // console.log(toys[1][1].count)
-        for(var i=0;i<this.toys.length;i++){
-            if(this.toys[1][i].name===reqName){
-                this.income+=this.toys[1][i].price;
-                this.customerbasket.push[this.toys[1][i].name]
-                this.remaining= this.toys[1][i].count
-                
-                console.log(`${reqName} added to your basket successfully \n======\n total price:${this.income} $ Remaining: ${this.remaining} Count`)
+    statusinfo(name) {
+        this.toys.forEach(item => {
+            if (item.name === name) {
+                if (item.count > 0) {
+                    item.count--;
+                    this.income += item.price;
+                    console.log(` \n----\n ## Info about ${name} item: Purchased ${item.name} for ${item.price} ID # ${item.id} ${item.count} \n----\n TOTAL price \n#######\n ${this.income}`);
+                } else {
+                    console.log(`Sorry, ${item.name} is out of stock!`);
+                }
+            }
+        });
+    }
+    AddnewItem(name2,count2){
+        this.toys.forEach(item=>{
+            if(item.name=== name2){
+                console.log(`${item.name} contain ${item.count}`)
+                item.count+=count2;
+                console.log(`after ${item.name} contain ${item.count}`)
 
-
-            }else{
-                console.log(`${reqName} is not Available yet`)
 
             }
 
-        }
-        
-        console.log('income',this.income)
-
-
-// for(var i=0;i<=this.toys.length;i++){
-//     console.log('h')
-// }
-
+        })
 
 
     }
 
 }
+
 const store = new Store("Toys Garden", toys);
-store.statusinfo('bicycle')
-store.statusinfo('doll')
+// store.statusinfo("ball")
+// store.statusinfo("train")
+store.AddnewItem('train',4)
+
+
+
 
 
 
